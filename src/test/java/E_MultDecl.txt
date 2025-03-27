@@ -1,0 +1,18 @@
+program MultDecl;
+var
+    a,b: integer;
+    a: boolean;
+    x,x: string;
+function foo(): integer;
+var
+    a,b: integer;
+    b: boolean;
+    x, y, y: string;
+begin
+    writeln('No deberia pasar nada por el error', x);
+end;
+
+begin
+    writeln('No deberia pasar nada por el error', x);
+end.
+
