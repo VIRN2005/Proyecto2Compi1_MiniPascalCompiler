@@ -239,7 +239,7 @@ class CompilerGUI extends JFrame {
             MyErrorListener.errors.forEach(error -> errorsOutput.append(error.errorMsg()).append("\n"));
 
             if (errorsOutput.length() > 0) {
-                outputArea.append("Errores de compilación encontrados:\n" + errorsOutput + "\n");
+                outputArea.append("Errores de compilación encontrados: -- \n" + errorsOutput + "\n");
 
                 String fileContent = new String(Files.readAllBytes(selectedFile.toPath()), StandardCharsets.UTF_8);
                 for (MyErrorListener.MyError error : MyErrorListener.errors) {
@@ -260,7 +260,7 @@ class CompilerGUI extends JFrame {
                 animateSuccessMessage();
             }
         } catch (Exception ex) {
-            outputArea.append("Error durante la compilación: " + ex.getMessage() + "\n");
+            outputArea.append("Error durante la compilación: -- " + ex.getMessage() + "\n");
         }
     }
 
