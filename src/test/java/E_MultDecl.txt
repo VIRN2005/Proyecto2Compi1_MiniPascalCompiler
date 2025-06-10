@@ -9,10 +9,10 @@ var
     b: boolean;
     x, y, y: string;
 begin
-    writeln('No deberia pasar nada por el error', x);
+    writeln('No deberia pasar nada por el error');
 end;
 
 begin
-    writeln('No deberia pasar nada por el error', x);
+    writeln('No deberia pasar nada por el error');
 end.
 

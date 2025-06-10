@@ -42,8 +42,6 @@ import static org.antlr.v4.runtime.CharStreams.fromFileName;
 import org.antlr.v4.runtime.CommonTokenStream;
 import org.antlr.v4.runtime.tree.ParseTree;
 
-// ... Otras clases como MyErrorListener, MyVisitor ya estarán en el código base
-
 public class Main {
     public static void main(String[] args) {
         try {
