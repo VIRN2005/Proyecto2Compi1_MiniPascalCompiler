@@ -1,20 +1,18 @@
-program MultDecl;
+program MultDeclError;
+
 var
-    a,b: integer;
-    a: boolean;
-    x,x: string;
-function foo(): integer;
+    x, x: integer;
+    y: boolean;
+
+function bar(): boolean;
 var
-    a,b: integer;
-    b: boolean;
-    x, y, y: string;
+    a, a: string;
+    b: integer;
 begin
-    writeln('No deberia pasar nada por el error', x);
+    writeln('Este código tiene un error de declaración múltiple', a);
+    bar := true;
 end;
 
-ERROR A PROPÓSITO;
-
 begin
-    writeln('No deberia pasar nada por el error', x);
+    writeln('Este código tiene un error de declaración múltiple', x);
 end.
-
