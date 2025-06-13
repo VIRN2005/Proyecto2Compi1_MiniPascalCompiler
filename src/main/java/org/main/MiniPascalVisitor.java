@@ -1,5 +1,4 @@
 // Generated from src/main/antlr4/MiniPascal.g4 by ANTLR 4.13.2
-package org.main;
 import org.antlr.v4.runtime.tree.ParseTreeVisitor;
 
 /**

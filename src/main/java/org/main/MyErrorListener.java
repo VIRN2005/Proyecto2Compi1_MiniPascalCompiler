@@ -1,10 +1,11 @@
 package org.main;
 
-import org.antlr.v4.runtime.CommonTokenStream;
-import org.antlr.v4.runtime.Recognizer;
-import org.antlr.v4.runtime.RecognitionException;
-import org.antlr.v4.runtime.Token;
 import java.util.ArrayList;
+
+import org.antlr.v4.runtime.CommonTokenStream;
+import org.antlr.v4.runtime.RecognitionException;
+import org.antlr.v4.runtime.Recognizer;
+import org.antlr.v4.runtime.Token;
 
 public class MyErrorListener extends org.antlr.v4.runtime.BaseErrorListener {
 
@@ -34,7 +35,6 @@ public class MyErrorListener extends org.antlr.v4.runtime.BaseErrorListener {
                 .replace("mismatched input", "¡entrada incompatible!")
                 .replace("at", "en");
 
-        // Construimos un mensaje de error épico
         StringBuilder sb = new StringBuilder();
         sb.append("🔥 [ERROR] Línea ")
                 .append(line)
