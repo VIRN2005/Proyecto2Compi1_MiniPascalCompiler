@@ -1,0 +1,12 @@
+program WhileLoopExample;
+
+var
+    i: integer;
+begin
+    i := 1; { Initialize counter }
+    while i <= 10 do
+    begin
+        writeln("I:", i);
+	    i := i + 1;
+    end;
+end.

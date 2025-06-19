@@ -1,0 +1,11 @@
+program Test1;
+var
+  num1, num2, result: integer;
+begin
+  write('Ingrese el primer número: ');
+  read(num1);
+  write('Ingrese el segundo número: ');
+  read(num2);
+  result := num1 + num2;
+  write('La suma es: ', result);
+end.

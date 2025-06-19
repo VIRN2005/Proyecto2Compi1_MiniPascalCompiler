@@ -1,0 +1,23 @@
+program Test3;
+var
+  num: integer;
+
+function factorial(n: integer): integer;
+begin
+  while n > 0 do
+  begin
+    n := n - 1;
+    factorial := factorial * n;
+  end;
+end;
+
+begin
+  write('Ingrese un número para calcular el factorial: ');
+  read(num);
+  while num >= 0 do
+  begin
+    write('El factorial es ', factorial(num));
+    write(' Ingrese otro número (o un número negativo para salir): ');
+    read(num);
+  end;
+end.

@@ -1,0 +1,15 @@
+program Test2;
+var
+  arr: array[1..5] of integer;
+  i: integer;
+begin
+  for i := 1 to 5 do
+  begin
+    write('Ingrese un número: ');
+    read(arr[i]);
+  end;
+  if arr[1] > arr[2] then
+    write('El primer número es mayor que el segundo');
+  else
+    write('El segundo número es mayor o igual al primero');
+end.

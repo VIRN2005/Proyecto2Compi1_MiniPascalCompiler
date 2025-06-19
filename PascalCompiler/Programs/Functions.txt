@@ -1,0 +1,18 @@
+program Functions;
+var
+    result: integer;
+
+function Add(a, b: integer): integer;
+begin
+    Add := a + b;
+end;
+
+function Mult(a,b: integer): integer;
+begin
+    Mult := a * b;
+end;
+
+begin
+    result := Add(15, 3);
+    writeln("The result is: ", result);
+end.
