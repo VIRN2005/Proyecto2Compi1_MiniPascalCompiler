@@ -1,9 +1,14 @@
 ; ModuleID = 'MiniPascal'
+source_filename = "C:\Users\Victo\OneDrive\Documents\- UNITEC\Ing. Sistemas\2025 - Periodo 1\Compiladores 1\Proyect 2\Proyecto2Compi1_MiniPascalCompiler\PascalCompiler\Programs\Pemdas.txt"
+target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-f80:128-n8:16:32:64-S128"
+target triple = "x86_64-pc-linux-gnu"
+
+; ModuleID = 'MiniPascal'
 source_filename = "output.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-@.str._t6bc8f90c_e5fe_4765_9a49_e17f421c6ff6 = private unnamed_addr constant [8 x i8] c"Total: \00"
+@.str._t41c72361_0060_4e14_9b16_60cb5aa2e3b5 = private unnamed_addr constant [8 x i8] c"Total: \00"
 
 %struct._IO_FILE = type { i8*, i32, i32, i32, i8*, i8*, i8*, i8*, i8*, i32, i32, i32, i32, i8*, i8*, i8*, i32, i32, i32 }
 @str_fmt = unnamed_addr constant [4 x i8] c"%d\0A\00"
@@ -63,7 +68,7 @@ store i32 5, i32* %_t13
 %e_val = load i32, i32* %e
 %_t14_val = mul i32 %_t12_val, %e_val
 store i32 %_t14_val, i32* %tot
-call void @write_string(i8* getelementptr inbounds ([8 x i8], [8 x i8]* @.str._t6bc8f90c_e5fe_4765_9a49_e17f421c6ff6, i32 0, i32 0))
+call void @write_string(i8* getelementptr inbounds ([8 x i8], [8 x i8]* @.str._t41c72361_0060_4e14_9b16_60cb5aa2e3b5, i32 0, i32 0))
 
 %_t16 = alloca i32
 store i32 %_t14_val, i32* %_t16
@@ -105,3 +110,14 @@ declare i32 @sprintf(i8*, i8*, ...)
 declare i32 @puts(i8*)
 declare i8* @fgets(i8*, i32, %struct._IO_FILE*)
 declare void @exit(i32)
+
+; Function Attrs: noinline nounwind optnone uwtable
+declare i32 @printf(i8*, ...) #0
+
+attributes #0 = { noinline nounwind optnone uwtable "correctly-rounded-divide-sqrt-fp-math"="false" "disable-tail-calls"="false" "frame-pointer"="all" "less-precise-fpmad"="false" "min-legal-vector-width"="0" "no-infs-fp-math"="false" "no-jump-tables"="false" "no-nans-fp-math"="false" "no-signed-zeros-fp-math"="false" "no-trapping-math"="false" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "unsafe-fp-math"="false" "use-soft-float"="false" }
+
+!llvm.module.flags = !{!0}
+!llvm.ident = !{!1}
+
+!0 = !{i32 1, !"wchar_size", i32 4}
+!1 = !{!"clang version 10.0.0-4ubuntu1 "}
