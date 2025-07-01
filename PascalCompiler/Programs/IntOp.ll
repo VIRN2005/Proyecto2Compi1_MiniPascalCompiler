@@ -1,22 +1,17 @@
 ; ModuleID = 'MiniPascal'
-source_filename = "C:\Users\wilme\Downloads\PascalCompiler_Compi2\PascalCompiler\Programs\IntOp.txt"
-target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-pc-linux-gnu"
-
-; ModuleID = 'MiniPascal'
 source_filename = "output.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-@.str._tc8ea1d48_dc80_4f36_a986_18071c86cef8 = private unnamed_addr constant [4 x i8] c"X: \00"
+@.str._t8fe02a3e_deb4_458d_af59_b492c74da090 = private unnamed_addr constant [4 x i8] c"X: \00"
 
-@.str._t441d3c8f_ba5c_4b96_872a_bb0835cb90fd = private unnamed_addr constant [4 x i8] c"Y: \00"
+@.str._td5a85f85_0108_4eb3_98a0_e8a4e3626df9 = private unnamed_addr constant [4 x i8] c"Y: \00"
 
-@.str._td67e846c_f677_401e_bc6e_b0d0c374c533 = private unnamed_addr constant [4 x i8] c"Z: \00"
+@.str._t47c512e0_5c6d_430c_b2c9_e7ca533c85d7 = private unnamed_addr constant [4 x i8] c"Z: \00"
 
-@.str._t818074bd_29d3_43b5_b135_c2da8768dec7 = private unnamed_addr constant [4 x i8] c"A: \00"
+@.str._t96561801_b47b_4899_a5af_9a1c3ae95c5b = private unnamed_addr constant [4 x i8] c"A: \00"
 
-@.str._t49fe7acb_7670_4969_be31_89edf4a6e7e8 = private unnamed_addr constant [7 x i8] c"Mult: \00"
+@.str._t31f53cc9_91ca_4b13_af70_be6d74bb3d18 = private unnamed_addr constant [7 x i8] c"Mult: \00"
 
 %struct._IO_FILE = type { i8*, i32, i32, i32, i8*, i8*, i8*, i8*, i8*, i32, i32, i32, i32, i8*, i8*, i8*, i32, i32, i32 }
 @str_fmt = unnamed_addr constant [4 x i8] c"%d\0A\00"
@@ -45,36 +40,36 @@ store i32 50, i32* %y
 %_t2 = alloca i32
 store i32 10, i32* %_t2
 store i32 10, i32* %z
-call void @write_string(i8* getelementptr inbounds ([4 x i8], [4 x i8]* @.str._tc8ea1d48_dc80_4f36_a986_18071c86cef8, i32 0, i32 0))
+call void @write_string(i8* getelementptr inbounds ([4 x i8], [4 x i8]* @.str._t8fe02a3e_deb4_458d_af59_b492c74da090, i32 0, i32 0))
 
 %_t4 = alloca i32
 store i32 100, i32* %_t4
-%_t4e6b9636_1998_4a1c_9788_b940ec37d041 = load i32, i32* %x
-call void @write_int(i32 %_t4e6b9636_1998_4a1c_9788_b940ec37d041)
+%_tc04c5b84_71d3_4e8f_9569_b1942dbe955e = load i32, i32* %x
+call void @write_int(i32 %_tc04c5b84_71d3_4e8f_9569_b1942dbe955e)
 
-call void @write_string(i8* getelementptr inbounds ([4 x i8], [4 x i8]* @.str._t441d3c8f_ba5c_4b96_872a_bb0835cb90fd, i32 0, i32 0))
+call void @write_string(i8* getelementptr inbounds ([4 x i8], [4 x i8]* @.str._td5a85f85_0108_4eb3_98a0_e8a4e3626df9, i32 0, i32 0))
 
 %_t6 = alloca i32
 store i32 50, i32* %_t6
-%_t91a88f8d_6076_4ba6_99bb_5ac5795020e2 = load i32, i32* %y
-call void @write_int(i32 %_t91a88f8d_6076_4ba6_99bb_5ac5795020e2)
+%_t9057ee5d_3158_48d0_9f1b_8a5e83415176 = load i32, i32* %y
+call void @write_int(i32 %_t9057ee5d_3158_48d0_9f1b_8a5e83415176)
 
-call void @write_string(i8* getelementptr inbounds ([4 x i8], [4 x i8]* @.str._td67e846c_f677_401e_bc6e_b0d0c374c533, i32 0, i32 0))
+call void @write_string(i8* getelementptr inbounds ([4 x i8], [4 x i8]* @.str._t47c512e0_5c6d_430c_b2c9_e7ca533c85d7, i32 0, i32 0))
 
 %_t8 = alloca i32
 store i32 10, i32* %_t8
-%_t7cb289ae_cac1_44a1_bad2_461e618cdbb9 = load i32, i32* %z
-call void @write_int(i32 %_t7cb289ae_cac1_44a1_bad2_461e618cdbb9)
+%_tc94c7701_ebf3_4cc0_ba61_205f5dff9497 = load i32, i32* %z
+call void @write_int(i32 %_tc94c7701_ebf3_4cc0_ba61_205f5dff9497)
 
 %_t9 = alloca i32
 store i32 5, i32* %_t9
 store i32 5, i32* %a
-call void @write_string(i8* getelementptr inbounds ([4 x i8], [4 x i8]* @.str._t818074bd_29d3_43b5_b135_c2da8768dec7, i32 0, i32 0))
+call void @write_string(i8* getelementptr inbounds ([4 x i8], [4 x i8]* @.str._t96561801_b47b_4899_a5af_9a1c3ae95c5b, i32 0, i32 0))
 
 %_t11 = alloca i32
 store i32 5, i32* %_t11
-%_te2ba61ec_6384_4463_a7e3_dcef05c80fa0 = load i32, i32* %a
-call void @write_int(i32 %_te2ba61ec_6384_4463_a7e3_dcef05c80fa0)
+%_t7e16c917_e395_40c3_83e6_2cb07beb814d = load i32, i32* %a
+call void @write_int(i32 %_t7e16c917_e395_40c3_83e6_2cb07beb814d)
 
 %_t12 = alloca i32
 store i32 5, i32* %_t12
@@ -84,7 +79,7 @@ store i32 10, i32* %_t13
 %z_val = load i32, i32* %z
 %_t14_val = mul i32 %a_val, %z_val
 store i32 %_t14_val, i32* %multiply
-call void @write_string(i8* getelementptr inbounds ([7 x i8], [7 x i8]* @.str._t49fe7acb_7670_4969_be31_89edf4a6e7e8, i32 0, i32 0))
+call void @write_string(i8* getelementptr inbounds ([7 x i8], [7 x i8]* @.str._t31f53cc9_91ca_4b13_af70_be6d74bb3d18, i32 0, i32 0))
 
 %_t16 = alloca i32
 store i32 %_t14_val, i32* %_t16
@@ -126,14 +121,3 @@ declare i32 @sprintf(i8*, i8*, ...)
 declare i32 @puts(i8*)
 declare i8* @fgets(i8*, i32, %struct._IO_FILE*)
 declare void @exit(i32)
-
-; Function Attrs: noinline nounwind optnone uwtable
-declare i32 @printf(i8*, ...) #0
-
-attributes #0 = { noinline nounwind optnone uwtable "correctly-rounded-divide-sqrt-fp-math"="false" "disable-tail-calls"="false" "frame-pointer"="all" "less-precise-fpmad"="false" "min-legal-vector-width"="0" "no-infs-fp-math"="false" "no-jump-tables"="false" "no-nans-fp-math"="false" "no-signed-zeros-fp-math"="false" "no-trapping-math"="false" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "unsafe-fp-math"="false" "use-soft-float"="false" }
-
-!llvm.module.flags = !{!0}
-!llvm.ident = !{!1}
-
-!0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{!"clang version 10.0.0-4ubuntu1 "}

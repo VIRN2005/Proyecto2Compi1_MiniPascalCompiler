@@ -3,7 +3,7 @@ source_filename = "output.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-@.str._t4fed8f3f_eec0_4469_99e7_764e36658ade = private unnamed_addr constant [16 x i8] c"The result is: \00"
+@.str._t7ec4fa81_a396_44cb_913e_4763a1a90e42 = private unnamed_addr constant [16 x i8] c"The result is: \00"
 
 %struct._IO_FILE = type { i8*, i32, i32, i32, i8*, i8*, i8*, i8*, i8*, i32, i32, i32, i32, i8*, i8*, i8*, i32, i32, i32 }
 @str_fmt = unnamed_addr constant [4 x i8] c"%d\0A\00"
@@ -14,7 +14,7 @@ define i32 @main() {
 br label %Functions
 Functions:
 %result = call i32 @Add( i32 15, i32 3)
-call void @write_string(i8* getelementptr inbounds ([16 x i8], [16 x i8]* @.str._t4fed8f3f_eec0_4469_99e7_764e36658ade, i32 0, i32 0))
+call void @write_string(i8* getelementptr inbounds ([16 x i8], [16 x i8]* @.str._t7ec4fa81_a396_44cb_913e_4763a1a90e42, i32 0, i32 0))
 
 call void @write_int(i32 %result)
 

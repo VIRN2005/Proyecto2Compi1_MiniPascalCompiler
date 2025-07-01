@@ -8,7 +8,7 @@ source_filename = "output.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-@.str._t41c72361_0060_4e14_9b16_60cb5aa2e3b5 = private unnamed_addr constant [8 x i8] c"Total: \00"
+@.str._tf6a10946_4ae7_43ad_8372_05ea0ac256a8 = private unnamed_addr constant [8 x i8] c"Total: \00"
 
 %struct._IO_FILE = type { i8*, i32, i32, i32, i8*, i8*, i8*, i8*, i8*, i32, i32, i32, i32, i8*, i8*, i8*, i32, i32, i32 }
 @str_fmt = unnamed_addr constant [4 x i8] c"%d\0A\00"
@@ -68,7 +68,7 @@ store i32 5, i32* %_t13
 %e_val = load i32, i32* %e
 %_t14_val = mul i32 %_t12_val, %e_val
 store i32 %_t14_val, i32* %tot
-call void @write_string(i8* getelementptr inbounds ([8 x i8], [8 x i8]* @.str._t41c72361_0060_4e14_9b16_60cb5aa2e3b5, i32 0, i32 0))
+call void @write_string(i8* getelementptr inbounds ([8 x i8], [8 x i8]* @.str._tf6a10946_4ae7_43ad_8372_05ea0ac256a8, i32 0, i32 0))
 
 %_t16 = alloca i32
 store i32 %_t14_val, i32* %_t16
