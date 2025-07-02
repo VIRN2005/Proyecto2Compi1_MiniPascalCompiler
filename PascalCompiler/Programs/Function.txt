@@ -1,0 +1,18 @@
+program MathFunctions;
+var
+    resultado: integer;
+
+function Resta(x, y: integer): integer;
+begin
+    Resta := x - y;
+end;
+
+function Division(x, y: integer): integer;
+begin
+    Division := x div y;
+end;
+
+begin
+    resultado := Resta(25, 8);
+    writeln("El resultado es: ", resultado);
+end.

@@ -1,5 +1,5 @@
 ; ModuleID = 'MiniPascal'
-source_filename = "C:\Users\Victo\OneDrive\Documents\- UNITEC\Ing. Sistemas\2025 - Periodo 1\Compiladores 1\Proyect 2\Proyecto2Compi1_MiniPascalCompiler\PascalCompiler\Programs\Salario.txt"
+source_filename = "C:\Users\Victo\OneDrive\Documents\- UNITEC\Ing. Sistemas\2025 - Periodo 1\Compiladores 1\Proyect 2\Proyecto2Compi1_MiniPascalCompiler\PascalCompiler\Programs\Salary.txt"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
@@ -8,9 +8,9 @@ source_filename = "output.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-@.str._t27c5b098_7367_4249_b604_dd66434e978b = private unnamed_addr constant [9 x i8] c"Salario:\00"
+@.str._t1a2637cf_63e4_4d25_87b7_80ac6261f724 = private unnamed_addr constant [14 x i8] c"Sueldo Total:\00"
 
-@.str._t9afc51af_c09b_4767_a11d_2e8208c919f9 = private unnamed_addr constant [17 x i8] c"Estas pero pobre\00"
+@.str._t39d24769_48a1_4853_b6a1_c1b16a79cf7f = private unnamed_addr constant [20 x i8] c"Buen sueldo semanal\00"
 
 %struct._IO_FILE = type { i8*, i32, i32, i32, i8*, i8*, i8*, i8*, i8*, i32, i32, i32, i32, i8*, i8*, i8*, i32, i32, i32 }
 @str_fmt = unnamed_addr constant [4 x i8] c"%d\0A\00"
@@ -18,29 +18,29 @@ target triple = "x86_64-pc-linux-gnu"
 @double_fmt = private unnamed_addr constant [4 x i8] c"%f\0A\00"
 
 define i32 @main() {
-br label %Salario
-Salario:
-%salDiario = alloca i32
-store i32 0, i32* %salDiario
-%dias = alloca i32
-store i32 0, i32* %dias
-%salarioTot = alloca i32
-store i32 0, i32* %salarioTot
+br label %CalculoSueldo
+CalculoSueldo:
+%sueldoHora = alloca i32
+store i32 0, i32* %sueldoHora
+%horas = alloca i32
+store i32 0, i32* %horas
+%sueldoTotal = alloca i32
+store i32 0, i32* %sueldoTotal
 %_t0 = alloca i32
-store i32 500, i32* %_t0
-store i32 500, i32* %salDiario
+store i32 150, i32* %_t0
+store i32 150, i32* %sueldoHora
 %_t1 = alloca i32
-store i32 30, i32* %_t1
-store i32 30, i32* %dias
+store i32 40, i32* %_t1
+store i32 40, i32* %horas
 %_t2 = alloca i32
-store i32 30, i32* %_t2
+store i32 40, i32* %_t2
 %_t3 = alloca i32
-store i32 500, i32* %_t3
-%dias_val = load i32, i32* %dias
-%salDiario_val = load i32, i32* %salDiario
-%_t4_val = mul i32 %dias_val, %salDiario_val
-store i32 %_t4_val, i32* %salarioTot
-call void @write_string(i8* getelementptr inbounds ([9 x i8], [9 x i8]* @.str._t27c5b098_7367_4249_b604_dd66434e978b, i32 0, i32 0))
+store i32 150, i32* %_t3
+%horas_val = load i32, i32* %horas
+%sueldoHora_val = load i32, i32* %sueldoHora
+%_t4_val = mul i32 %horas_val, %sueldoHora_val
+store i32 %_t4_val, i32* %sueldoTotal
+call void @write_string(i8* getelementptr inbounds ([14 x i8], [14 x i8]* @.str._t1a2637cf_63e4_4d25_87b7_80ac6261f724, i32 0, i32 0))
 
 %_t6 = alloca i32
 store i32 %_t4_val, i32* %_t6
@@ -49,12 +49,12 @@ call void @write_int(i32 %_t4_val)
 %_t7 = alloca i32
 store i32 %_t4_val, i32* %_t7
 %_t8 = alloca i32
-store i32 11500, i32* %_t8
-%_t3bafd78a_c5ef_408a_b0cb_e80d3c2442a7 = add i32 11500, 0
-%_t9 = icmp slt i32 %_t4_val, %_t3bafd78a_c5ef_408a_b0cb_e80d3c2442a7
+store i32 5000, i32* %_t8
+%_tebb5cdaa_086c_4f45_aa0e_9aa5a4453f43 = add i32 5000, 0
+%_t9 = icmp sgt i32 %_t4_val, %_tebb5cdaa_086c_4f45_aa0e_9aa5a4453f43
 br i1 %_t9, label %L_t9, label %Label0
 L_t9:
-call void @write_string(i8* getelementptr inbounds ([17 x i8], [17 x i8]* @.str._t9afc51af_c09b_4767_a11d_2e8208c919f9, i32 0, i32 0))
+call void @write_string(i8* getelementptr inbounds ([20 x i8], [20 x i8]* @.str._t39d24769_48a1_4853_b6a1_c1b16a79cf7f, i32 0, i32 0))
 
 br label %Label1
 Label0:

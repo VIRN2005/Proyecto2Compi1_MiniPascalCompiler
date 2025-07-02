@@ -3,11 +3,7 @@ source_filename = "output.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-@.str._teae0ebbe_32e6_48c8_9056_e0e1c67c97b4 = private unnamed_addr constant [11 x i8] c"hola Mundo\00"
-
-@.str._tdabb9de2_5496_4a93_9316_d1c37770017c = private unnamed_addr constant [30 x i8] c"HOLA MUNDO PERO EN MAYUSCULAS\00"
-
-@.str._t8e5cdea9_c963_49d1_9f31_f8ae652f9205 = private unnamed_addr constant [19 x i8] c"h o l a  m u n d o\00"
+@.str._ta2b73757_1251_4def_89fa_2b91514e683d = private unnamed_addr constant [18 x i8] c"El resultado es: \00"
 
 %struct._IO_FILE = type { i8*, i32, i32, i32, i8*, i8*, i8*, i8*, i8*, i32, i32, i32, i32, i8*, i8*, i8*, i32, i32, i32 }
 @str_fmt = unnamed_addr constant [4 x i8] c"%d\0A\00"
@@ -15,16 +11,29 @@ target triple = "x86_64-pc-linux-gnu"
 @double_fmt = private unnamed_addr constant [4 x i8] c"%f\0A\00"
 
 define i32 @main() {
-br label %Writes
-Writes:
-call void @write_string(i8* getelementptr inbounds ([11 x i8], [11 x i8]* @.str._teae0ebbe_32e6_48c8_9056_e0e1c67c97b4, i32 0, i32 0))
+br label %MathFunctions
+MathFunctions:
+%resultado = call i32 @Resta( i32 25, i32 8)
+call void @write_string(i8* getelementptr inbounds ([18 x i8], [18 x i8]* @.str._ta2b73757_1251_4def_89fa_2b91514e683d, i32 0, i32 0))
 
-call void @write_string(i8* getelementptr inbounds ([30 x i8], [30 x i8]* @.str._tdabb9de2_5496_4a93_9316_d1c37770017c, i32 0, i32 0))
-
-call void @write_string(i8* getelementptr inbounds ([19 x i8], [19 x i8]* @.str._t8e5cdea9_c963_49d1_9f31_f8ae652f9205, i32 0, i32 0))
+%_t1 = alloca i32
+store i32 %resultado_val, i32* %_t1
+call void @write_int(i32 %resultado)
 
 ret i32 0
 }
+define i32 @Resta(
+i32 %x_val,
+i32 %y_val
+) {
+%RestaRes_val = add i32 %x_val, %y_val
+ret i32 %RestaRes_val}
+define i32 @Division(
+i32 %x_val,
+i32 %y_val
+) {
+%DivisionRes_val = mul i32 %x_val, %y_val
+ret i32 %DivisionRes_val}
 define void @write_double(double %num) {
   %buf = alloca [32 x i8], align 1
   %buf_ptr = getelementptr inbounds [32 x i8], [32 x i8]* %buf, i32 0, i32 0

@@ -1,0 +1,16 @@
+program TypeMismatch;
+var
+    edad, peso: integer;
+    nombre, apellido: string;
+    activo, completo: boolean;
+
+begin
+    edad := 25;
+    peso := "75"; {Error: asignación de string a integer}
+
+    nombre := "Roman";
+    apellido := false; {Error: asignación de boolean a string}
+
+    activo := true;
+    completo := 100; {Error: asignación de integer a boolean}
+end.

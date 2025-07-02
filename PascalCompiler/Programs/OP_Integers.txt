@@ -1,0 +1,16 @@
+program OperacionesEnteros;
+var
+    p, q, r, s: integer;
+    division: integer;
+begin
+    p := 200;
+    q := 25;
+    r := 8;
+    writeln("P: ", p);
+    writeln("Q: ", q);
+    writeln("R: ", r);
+    s := 4;
+    writeln("S: ", s);
+    division := p div s;
+    writeln("Division: ", division);
+end.

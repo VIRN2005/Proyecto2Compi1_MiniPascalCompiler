@@ -1,6 +1,0 @@
-program Writes;
-begin
-  writeln("hola Mundo");
-  writeln("HOLA MUNDO PERO EN MAYUSCULAS");
-  writeln("h o l a  m u n d o");
-end.

@@ -1,0 +1,20 @@
+program CalculoSueldo;
+
+var
+    sueldoHora, horas, sueldoTotal: integer;
+
+begin
+    { Inicializar valores }
+    sueldoHora := 150;
+    horas := 40;
+
+    { Calcular sueldo total }
+    sueldoTotal := horas * sueldoHora;
+
+    { Mostrar resultado }
+    writeln("Sueldo Total:", sueldoTotal);
+
+    { Condición simple }
+    if sueldoTotal > 5000 then
+        writeln("Buen sueldo semanal");
+end.

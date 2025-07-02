@@ -1,0 +1,8 @@
+program VariablesNoDeclaradas;
+var
+    p, q, resultado: integer;
+begin
+    resultado := w + v;  {Error: 'w' y 'v' no declaradas}
+    total := w + v;      {Error: 'total', 'w' y 'v' no declaradas}
+    writeln("Resultado: ", resultado);
+end.

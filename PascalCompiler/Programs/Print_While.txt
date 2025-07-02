@@ -1,0 +1,12 @@
+program BucleWhile;
+
+var
+    numero: integer;
+begin
+    numero := 5; { Inicializar contador }
+    while numero <= 15 do
+    begin
+        writeln("Numero:", numero);
+        numero := numero + 2;
+    end;
+end.

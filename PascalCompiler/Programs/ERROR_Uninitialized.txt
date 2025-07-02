@@ -1,0 +1,9 @@
+program UninitializedVars;
+var
+    num1, num2, suma, resta: integer;
+begin
+    suma := num1 + num2; {Error: variables no inicializadas}
+    num1 := 10;
+    num2 := 5;
+    resta := num1 - num2; {Correcto: variables inicializadas}
+end.

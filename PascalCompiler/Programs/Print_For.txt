@@ -1,0 +1,9 @@
+program ForLoop;
+var
+    contador: integer;
+
+begin
+    contador := 0;
+    for contador := 5 to 20 do
+        writeln("Contador: ", contador);
+end.

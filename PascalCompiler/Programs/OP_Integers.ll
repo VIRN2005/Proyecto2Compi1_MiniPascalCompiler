@@ -1,5 +1,5 @@
 ; ModuleID = 'MiniPascal'
-source_filename = "C:\Users\Victo\OneDrive\Documents\- UNITEC\Ing. Sistemas\2025 - Periodo 1\Compiladores 1\Proyect 2\Proyecto2Compi1_MiniPascalCompiler\PascalCompiler\Programs\ForPrint.txt"
+source_filename = "C:\Users\Victo\OneDrive\Documents\- UNITEC\Ing. Sistemas\2025 - Periodo 1\Compiladores 1\Proyect 2\Proyecto2Compi1_MiniPascalCompiler\PascalCompiler\Programs\OP_Integers.txt"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
@@ -8,7 +8,15 @@ source_filename = "output.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-@.str._td452e59e_b1ce_4836_ab17_6727b20becda = private unnamed_addr constant [4 x i8] c"j: \00"
+@.str._t0649c8ee_8c75_4259_86ea_b7f8b5556b9d = private unnamed_addr constant [4 x i8] c"P: \00"
+
+@.str._t10b76b53_8e1c_4327_98e6_8ea4ed143106 = private unnamed_addr constant [4 x i8] c"Q: \00"
+
+@.str._te6570514_3995_4750_a127_b671cd8a2533 = private unnamed_addr constant [4 x i8] c"R: \00"
+
+@.str._t6a15cc39_ee1d_4810_a2a1_8d0236ef4ecb = private unnamed_addr constant [4 x i8] c"S: \00"
+
+@.str._tb30d88c8_77a5_4cf9_b5ec_1701c822a2c6 = private unnamed_addr constant [11 x i8] c"Division: \00"
 
 %struct._IO_FILE = type { i8*, i32, i32, i32, i8*, i8*, i8*, i8*, i8*, i32, i32, i32, i32, i8*, i8*, i8*, i32, i32, i32 }
 @str_fmt = unnamed_addr constant [4 x i8] c"%d\0A\00"
@@ -16,38 +24,70 @@ target triple = "x86_64-pc-linux-gnu"
 @double_fmt = private unnamed_addr constant [4 x i8] c"%f\0A\00"
 
 define i32 @main() {
-br label %ForPrint
-ForPrint:
-%j = alloca i32
-store i32 0, i32* %j
+br label %OperacionesEnteros
+OperacionesEnteros:
+%p = alloca i32
+store i32 0, i32* %p
+%q = alloca i32
+store i32 0, i32* %q
+%r = alloca i32
+store i32 0, i32* %r
+%s = alloca i32
+store i32 0, i32* %s
+%division = alloca i32
+store i32 0, i32* %division
 %_t0 = alloca i32
-store i32 0, i32* %_t0
-store i32 0, i32* %j
+store i32 200, i32* %_t0
+store i32 200, i32* %p
 %_t1 = alloca i32
-store i32 1, i32* %_t1
-store i32 1, i32* %j
-br label %Label0
-Label0:
+store i32 25, i32* %_t1
+store i32 25, i32* %q
 %_t2 = alloca i32
-store i32 15, i32* %_t2
-%_t1_val = load i32, i32* %_t1
-%_t77749963_2474_4e0d_8547_ca8402dd0f38 = add i32 15, 0
-%_t3 = icmp sle i32 %_t1_val, %_t77749963_2474_4e0d_8547_ca8402dd0f38
-br i1 %_t3, label %L_t3, label %Label1
-L_t3:
-call void @write_string(i8* getelementptr inbounds ([4 x i8], [4 x i8]* @.str._td452e59e_b1ce_4836_ab17_6727b20becda, i32 0, i32 0))
+store i32 8, i32* %_t2
+store i32 8, i32* %r
+call void @write_string(i8* getelementptr inbounds ([4 x i8], [4 x i8]* @.str._t0649c8ee_8c75_4259_86ea_b7f8b5556b9d, i32 0, i32 0))
 
-%_t5 = alloca i32
-store i32 1, i32* %_t5
-%_t22ec7918_4ab9_4324_a140_b9afcbbb619d = load i32, i32* %j
-call void @write_int(i32 %_t22ec7918_4ab9_4324_a140_b9afcbbb619d)
+%_t4 = alloca i32
+store i32 200, i32* %_t4
+%_t87f4ed00_4cbb_422d_a1a4_7aee230ad3e8 = load i32, i32* %p
+call void @write_int(i32 %_t87f4ed00_4cbb_422d_a1a4_7aee230ad3e8)
 
-%_t1_val = load i32, i32* %_t1
-%loopVar_val = add i32 %_t1_val, 1
-store i32 %loopVar_val, i32* %j
-store i32 %loopVar_val, i32* %_t1
-br label %Label0
-Label1:
+call void @write_string(i8* getelementptr inbounds ([4 x i8], [4 x i8]* @.str._t10b76b53_8e1c_4327_98e6_8ea4ed143106, i32 0, i32 0))
+
+%_t6 = alloca i32
+store i32 25, i32* %_t6
+%_t43fd6026_eac8_43ce_a642_92cc49850418 = load i32, i32* %q
+call void @write_int(i32 %_t43fd6026_eac8_43ce_a642_92cc49850418)
+
+call void @write_string(i8* getelementptr inbounds ([4 x i8], [4 x i8]* @.str._te6570514_3995_4750_a127_b671cd8a2533, i32 0, i32 0))
+
+%_t8 = alloca i32
+store i32 8, i32* %_t8
+%_t6834a465_77ce_47b4_a442_eb7ba55fb9cc = load i32, i32* %r
+call void @write_int(i32 %_t6834a465_77ce_47b4_a442_eb7ba55fb9cc)
+
+%_t9 = alloca i32
+store i32 4, i32* %_t9
+store i32 4, i32* %s
+call void @write_string(i8* getelementptr inbounds ([4 x i8], [4 x i8]* @.str._t6a15cc39_ee1d_4810_a2a1_8d0236ef4ecb, i32 0, i32 0))
+
+%_t11 = alloca i32
+store i32 4, i32* %_t11
+%_t91f4830a_d4c4_4dff_99dc_ce553b64539d = load i32, i32* %s
+call void @write_int(i32 %_t91f4830a_d4c4_4dff_99dc_ce553b64539d)
+
+%_t12 = alloca i32
+store i32 200, i32* %_t12
+%_t13 = alloca i32
+store i32 4, i32* %_t13
+%_t14 = call i32 @DIV( i32 p, i32 s)
+store i32 %_t14_val, i32* %division
+call void @write_string(i8* getelementptr inbounds ([11 x i8], [11 x i8]* @.str._tb30d88c8_77a5_4cf9_b5ec_1701c822a2c6, i32 0, i32 0))
+
+%_t16 = alloca i32
+store i32 %_t14_val, i32* %_t16
+call void @write_int(i32 %_t14_val)
+
 ret i32 0
 }
 define void @write_double(double %num) {

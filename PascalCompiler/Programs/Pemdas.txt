@@ -1,16 +1,15 @@
-program Pemdas;
+program OrderOperaciones;
 var
-   a,b,c,d,e, tot : integer;
+    w, x, y, z, v, total: integer;
 
 begin
-   tot := 0;
-   a := 2;
-   b := 2;
-   c :=3;
-   d :=4;
-   e :=5;
+    total := 0;
+    w := 3;
+    x := 4;
+    y := 2;
+    z := 6;
+    v := 5;
 
-   tot := (((a + b)*c)/d)*e;
-   writeln("Total: ",tot);
+    total := (((w * x) + y) - z) * v;
+    writeln("Total: ", total);
 end.
-

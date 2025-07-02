@@ -1,0 +1,18 @@
+program DeclaracionMultiple;
+var
+    m, n: integer;
+    m: boolean;      {Error: redeclaración de 'm'}
+    z, z: string;    {Error: redeclaración de 'z'}
+
+function bar(): integer;
+var
+    p, q: integer;
+    q: boolean;      {Error: redeclaración de 'q'}
+    w, v, v: string; {Error: redeclaración de 'v'}
+begin
+    writeln("Error de declaracion multiple");
+end;
+
+begin
+    writeln("No deberia ejecutarse por errores");
+end.

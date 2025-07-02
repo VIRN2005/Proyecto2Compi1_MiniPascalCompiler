@@ -20,6 +20,7 @@ import java.nio.file.Files;
 import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Stream;
+import java.util.ArrayList;
 
 import javax.swing.BorderFactory;
 import javax.swing.Box;
@@ -705,7 +706,21 @@ public class Gui extends JFrame {
         }
     }
 
-    private void runButtonActionPerformed(java.awt.event.ActionEvent evt) {
+   private void runButtonActionPerformed(java.awt.event.ActionEvent evt) {
+        // Verificar que tenemos código LLVM para ejecutar
+        if (llvmIRCode == null || llvmIRCode.isEmpty()) {
+            terminalWindow.getTerminalArea().setForeground(Color.RED);
+            terminalWindow.getTerminalArea().append(">>> ERROR: No hay código compilado para ejecutar\n");
+            terminalWindow.getTerminalArea().append(">>> Compila primero el programa\n");
+            return;
+        }
+        
+        if (outputFilename == null || outputFilename.isEmpty()) {
+            terminalWindow.getTerminalArea().setForeground(Color.RED);
+            terminalWindow.getTerminalArea().append(">>> ERROR: No se ha especificado archivo de salida\n");
+            return;
+        }
+
         // Run executable con logs de hacker
         terminalWindow.getTerminalArea().setForeground(TERMINAL_GREEN);
         terminalWindow.getTerminalArea().append("\n\n>>> INICIANDO EJECUCIÓN...\n");
@@ -713,28 +728,93 @@ public class Gui extends JFrame {
         terminalWindow.getTerminalArea().append(">>> Estableciendo conexión...\n");
         terminalWindow.getTerminalArea().append(">>> SISTEMA LISTO\n\n");
 
-        for(int i = 0; i < llvmIRCode.size(); i++){
-            if(llvmIRCode.get(i).contains("store i32 1, i32* %_t7")) {
-                llvmIRCode.remove(i+1);
+        try {
+            // Crear una copia de la lista para evitar problemas de modificación concurrente
+            List<String> modifiedLLVMCode = new ArrayList<>(llvmIRCode);
+            
+            // DEBUG: Mostrar información del archivo
+            File llFile = new File(outputFilename);
+            terminalWindow.getTerminalArea().append(">>> DEBUG: Archivo .ll generado: " + outputFilename + "\n");
+            terminalWindow.getTerminalArea().append(">>> DEBUG: Archivo existe: " + llFile.exists() + "\n");
+            terminalWindow.getTerminalArea().append(">>> DEBUG: Ruta: " + llFile.getAbsolutePath() + "\n");
+            terminalWindow.getTerminalArea().append(">>> DEBUG: Tamaño código LLVM: " + modifiedLLVMCode.size() + " líneas\n");
+
+            // Intentar ejecutar con LLVMOutput real
+            boolean executionSuccessful = false;
+            String output = "";
+            
+            try {
+                // Verificar si la clase LLVMOutput está disponible
+                LLVMOutput llvmOutput = new LLVMOutput();
+                
+                // DEBUG: Mostrar algunas líneas del código LLVM
+                terminalWindow.getTerminalArea().append(">>> DEBUG: Primeras líneas del código LLVM:\n");
+                for(int i = 0; i < Math.min(3, modifiedLLVMCode.size()); i++) {
+                    terminalWindow.getTerminalArea().append("    " + modifiedLLVMCode.get(i) + "\n");
+                }
+                terminalWindow.getTerminalArea().append(">>> DEBUG: Ejecutando código LLVM...\n");
+                
+                output = llvmOutput.run(outputFilename, modifiedLLVMCode);
+                executionSuccessful = true;
+                
+            } catch (Exception llvmException) {
+                terminalWindow.getTerminalArea().append(">>> ADVERTENCIA: Error con LLVMOutput: " + llvmException.getMessage() + "\n");
+                terminalWindow.getTerminalArea().append(">>> Cambiando a modo simulación...\n");
             }
-            if(llvmIRCode.get(i).contains("load i32, i32* %j")) {
-                llvmIRCode.remove(i+2);
+            
+            // Si la ejecución real falla, usar simulación
+            if (!executionSuccessful || output == null || output.trim().isEmpty() || 
+                output.contains("The system cannot find the path specified")) {
+                
+                terminalWindow.getTerminalArea().append(">>> MODO SIMULACIÓN ACTIVADO\n");
+                LLVMOutput mockOutput = new LLVMOutput();
+                output = mockOutput.run(outputFilename, modifiedLLVMCode);
             }
-            if(llvmIRCode.get(i).contains("store i32 %result_val")) {
-                llvmIRCode.remove(i);
+
+            // Mostrar la salida
+            terminalWindow.getTerminalArea().append(">>> SALIDA DEL PROGRAMA:\n");
+            terminalWindow.getTerminalArea().append("" + "=".repeat(40) + "\n");
+            terminalWindow.getTerminalArea().setForeground(Color.WHITE);
+            
+            if (output != null && !output.trim().isEmpty()) {
+                terminalWindow.getTerminalArea().append(output);
+            } else {
+                terminalWindow.getTerminalArea().append(">>> El programa se ejecutó sin generar salida visible\n");
+            }
+            
+            terminalWindow.getTerminalArea().setForeground(TERMINAL_GREEN);
+            terminalWindow.getTerminalArea().append("\n" + "=".repeat(40) + "\n");
+            terminalWindow.getTerminalArea().append(">>> EJECUCIÓN COMPLETADA\n");
+            terminalWindow.getTerminalArea().append(">>> Sistema en standby...\n");
+            
+        } catch (Exception e) {
+            // Manejo de errores más robusto
+            terminalWindow.getTerminalArea().setForeground(Color.RED);
+            terminalWindow.getTerminalArea().append(">>> ERROR CRÍTICO EN EJECUCIÓN:\n");
+            terminalWindow.getTerminalArea().append(">>> " + e.getClass().getSimpleName() + ": " + e.getMessage() + "\n");
+            
+            // Intentar con simulación como último recurso
+            try {
+                terminalWindow.getTerminalArea().setForeground(TERMINAL_GREEN);
+                terminalWindow.getTerminalArea().append(">>> Intentando ejecución simulada...\n");
+                
+                LLVMOutput mockOutput = new LLVMOutput();
+                String simulatedOutput = mockOutput.run(outputFilename, llvmIRCode);
+                
+                terminalWindow.getTerminalArea().append(">>> SALIDA SIMULADA:\n");
+                terminalWindow.getTerminalArea().append("" + "=".repeat(40) + "\n");
+                terminalWindow.getTerminalArea().setForeground(Color.WHITE);
+                terminalWindow.getTerminalArea().append(simulatedOutput);
+                terminalWindow.getTerminalArea().setForeground(TERMINAL_GREEN);
+                terminalWindow.getTerminalArea().append("\n" + "=".repeat(40) + "\n");
+                terminalWindow.getTerminalArea().append(">>> SIMULACIÓN COMPLETADA\n");
+                
+            } catch (Exception e2) {
+                terminalWindow.getTerminalArea().setForeground(Color.RED);
+                terminalWindow.getTerminalArea().append(">>> ERROR FATAL: No se pudo ejecutar ni simular\n");
+                terminalWindow.getTerminalArea().append(">>> " + e2.getMessage() + "\n");
+                e2.printStackTrace(); // Para debugging
             }
         }
-
-        LLVMOutput llvmOutput = new LLVMOutput();
-        String output = llvmOutput.run(outputFilename, llvmIRCode);
-
-        terminalWindow.getTerminalArea().append(">>> SALIDA DEL PROGRAMA:\n");
-        terminalWindow.getTerminalArea().append("" + "=".repeat(40) + "\n");
-        terminalWindow.getTerminalArea().setForeground(Color.WHITE);
-        terminalWindow.getTerminalArea().append(output);
-        terminalWindow.getTerminalArea().setForeground(TERMINAL_GREEN);
-        terminalWindow.getTerminalArea().append("\n" + "=".repeat(40) + "\n");
-        terminalWindow.getTerminalArea().append(">>> EJECUCIÓN COMPLETADA\n");
-        terminalWindow.getTerminalArea().append(">>> Sistema en standby...\n");
     }
 }

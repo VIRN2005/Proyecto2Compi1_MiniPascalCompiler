@@ -1,0 +1,20 @@
+program ErrorTablaSimbolos;
+var
+    alpha, beta: integer;
+    str1, str2: string;
+    flag1, flag2: boolean;
+
+function B(): integer;
+var
+    gamma, delta: integer;
+begin
+    gamma := 3;
+    delta := 7;
+    B := gamma * delta;
+end;
+
+begin
+    gamma := 2;  {Error: 'gamma' no declarada en este ámbito}
+    delta := 4;  {Error: 'delta' no declarada en este ámbito}
+    alpha := gamma + delta;
+end.

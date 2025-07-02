@@ -1,0 +1,6 @@
+program MensajesTexto;
+begin
+    writeln("Buenos dias");
+    writeln("PROGRAMACION EN PASCAL");
+    writeln("c o d i g o  l i m p i o");
+end.

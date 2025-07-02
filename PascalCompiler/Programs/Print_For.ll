@@ -1,5 +1,5 @@
 ; ModuleID = 'MiniPascal'
-source_filename = "C:\Users\Victo\OneDrive\Documents\- UNITEC\Ing. Sistemas\2025 - Periodo 1\Compiladores 1\Proyect 2\Proyecto2Compi1_MiniPascalCompiler\PascalCompiler\Programs\PEMDAS.txt"
+source_filename = "C:\Users\Victo\OneDrive\Documents\- UNITEC\Ing. Sistemas\2025 - Periodo 1\Compiladores 1\Proyect 2\Proyecto2Compi1_MiniPascalCompiler\PascalCompiler\Programs\Print_For.txt"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
@@ -8,7 +8,7 @@ source_filename = "output.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-@.str._t6758cb25_cff2_4f0b_96e9_43b93909b679 = private unnamed_addr constant [8 x i8] c"Total: \00"
+@.str._t9a13f24c_d5b4_4df3_8677_648330795bd8 = private unnamed_addr constant [11 x i8] c"Contador: \00"
 
 %struct._IO_FILE = type { i8*, i32, i32, i32, i8*, i8*, i8*, i8*, i8*, i32, i32, i32, i32, i8*, i8*, i8*, i32, i32, i32 }
 @str_fmt = unnamed_addr constant [4 x i8] c"%d\0A\00"
@@ -16,64 +16,38 @@ target triple = "x86_64-pc-linux-gnu"
 @double_fmt = private unnamed_addr constant [4 x i8] c"%f\0A\00"
 
 define i32 @main() {
-br label %OrderOperaciones
-OrderOperaciones:
-%w = alloca i32
-store i32 0, i32* %w
-%x = alloca i32
-store i32 0, i32* %x
-%y = alloca i32
-store i32 0, i32* %y
-%z = alloca i32
-store i32 0, i32* %z
-%v = alloca i32
-store i32 0, i32* %v
-%total = alloca i32
-store i32 0, i32* %total
+br label %ForLoop
+ForLoop:
+%contador = alloca i32
+store i32 0, i32* %contador
 %_t0 = alloca i32
 store i32 0, i32* %_t0
-store i32 0, i32* %total
+store i32 0, i32* %contador
 %_t1 = alloca i32
-store i32 3, i32* %_t1
-store i32 3, i32* %w
+store i32 5, i32* %_t1
+store i32 5, i32* %contador
+br label %Label0
+Label0:
 %_t2 = alloca i32
-store i32 4, i32* %_t2
-store i32 4, i32* %x
-%_t3 = alloca i32
-store i32 2, i32* %_t3
-store i32 2, i32* %y
-%_t4 = alloca i32
-store i32 6, i32* %_t4
-store i32 6, i32* %z
+store i32 20, i32* %_t2
+%_t1_val = load i32, i32* %_t1
+%_tf80b365a_c7c4_4e00_bd3a_6443897eeaa1 = add i32 20, 0
+%_t3 = icmp sle i32 %_t1_val, %_tf80b365a_c7c4_4e00_bd3a_6443897eeaa1
+br i1 %_t3, label %L_t3, label %Label1
+L_t3:
+call void @write_string(i8* getelementptr inbounds ([11 x i8], [11 x i8]* @.str._t9a13f24c_d5b4_4df3_8677_648330795bd8, i32 0, i32 0))
+
 %_t5 = alloca i32
 store i32 5, i32* %_t5
-store i32 5, i32* %v
-%_t6 = alloca i32
-store i32 3, i32* %_t6
-%_t7 = alloca i32
-store i32 4, i32* %_t7
-%w_val = load i32, i32* %w
-%x_val = load i32, i32* %x
-%_t8_val = mul i32 %w_val, %x_val
-%_t9 = alloca i32
-store i32 2, i32* %_t9
-%y_val = load i32, i32* %y
-%_t10_val = add i32 %_t8_val, %y_val
-%_t11 = alloca i32
-store i32 6, i32* %_t11
-%z_val = load i32, i32* %z
-%_t12_val = sub i32 %_t10_val, %z_val
-%_t13 = alloca i32
-store i32 5, i32* %_t13
-%v_val = load i32, i32* %v
-%_t14_val = mul i32 %_t12_val, %v_val
-store i32 %_t14_val, i32* %total
-call void @write_string(i8* getelementptr inbounds ([8 x i8], [8 x i8]* @.str._t6758cb25_cff2_4f0b_96e9_43b93909b679, i32 0, i32 0))
+%_tb8418bca_49a7_4bb6_8047_e3ab4e416f8a = load i32, i32* %contador
+call void @write_int(i32 %_tb8418bca_49a7_4bb6_8047_e3ab4e416f8a)
 
-%_t16 = alloca i32
-store i32 %_t14_val, i32* %_t16
-call void @write_int(i32 %_t14_val)
-
+%_t1_val = load i32, i32* %_t1
+%loopVar_val = add i32 %_t1_val, 5
+store i32 %loopVar_val, i32* %contador
+store i32 %loopVar_val, i32* %_t1
+br label %Label0
+Label1:
 ret i32 0
 }
 define void @write_double(double %num) {
