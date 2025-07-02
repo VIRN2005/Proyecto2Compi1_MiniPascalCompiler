@@ -1,9 +1,0 @@
-program Undeclared;
-var
-    a,b,x: integer;
-begin
-    x := c + d;
-    y := c + d;
-    writeln("X: ", x);
-end.
-

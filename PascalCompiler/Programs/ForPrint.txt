@@ -1,9 +1,0 @@
-program ForPrint;
-var
-    j: integer;
-
-begin
-    j:=0;
-    for j := 1 to 15 do
-        writeln("j: ", j);
-end.
