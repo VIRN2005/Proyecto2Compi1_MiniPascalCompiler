@@ -1,0 +1,20 @@
+program ContadorSimple;
+var
+    contador, limite: integer;
+
+begin
+    { Configurar contador }
+    contador := 1;
+    limite := 10;
+    
+    { Contar hasta el límite }
+    while contador <= limite do
+    begin
+        writeln("Contador: ", contador);
+        contador := contador + 1;
+    end;
+    
+    { Mensaje final }
+    writeln("Conteo completado!");
+    writeln("Se contaron ", limite, " numeros");
+end. 

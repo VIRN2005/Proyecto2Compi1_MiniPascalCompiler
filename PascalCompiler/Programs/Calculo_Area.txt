@@ -1,0 +1,23 @@
+program CalculoArea;
+var
+    base, altura, area: integer;
+
+begin
+    { Dimensiones del rectángulo }
+    base := 8;
+    altura := 6;
+    
+    { Calcular área }
+    area := base * altura;
+    
+    { Mostrar resultados }
+    writeln("Base del rectangulo: ", base);
+    writeln("Altura del rectangulo: ", altura);
+    writeln("Area del rectangulo: ", area);
+    
+    { Evaluar tamaño }
+    if area > 50 then
+        writeln("Es un rectangulo grande");
+    else
+        writeln("Es un rectangulo pequeno");
+end. 

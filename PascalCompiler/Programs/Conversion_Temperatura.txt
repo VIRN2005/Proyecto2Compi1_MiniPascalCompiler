@@ -1,0 +1,21 @@
+program ConversionTemperatura;
+var
+    celsius, fahrenheit: integer;
+
+begin
+    { Temperatura en Celsius }
+    celsius := 25;
+    
+    { Convertir a Fahrenheit }
+    fahrenheit := (celsius * 9) div 5 + 32;
+    
+    { Mostrar resultados }
+    writeln("Temperatura en Celsius: ", celsius);
+    writeln("Temperatura en Fahrenheit: ", fahrenheit);
+    
+    { Verificar si hace calor }
+    if fahrenheit > 80 then
+        writeln("Hace calor!")
+    else
+        writeln("Temperatura agradable");
+end. 

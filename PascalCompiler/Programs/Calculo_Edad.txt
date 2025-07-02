@@ -1,0 +1,23 @@
+program CalculoEdad;
+var
+    anioNacimiento, anioActual, edad: integer;
+
+begin
+    { Datos de ejemplo }
+    anioNacimiento := 1995;
+    anioActual := 2024;
+    
+    { Calcular edad }
+    edad := anioActual - anioNacimiento;
+    
+    { Mostrar información }
+    writeln("Anio de nacimiento: ", anioNacimiento);
+    writeln("Anio actual: ", anioActual);
+    writeln("Edad: ", edad, " anos");
+    
+    { Categorizar por edad }
+    if edad < 18 then
+        writeln("Eres menor de edad");
+    else
+        writeln("Eres mayor de edad");
+end. 
