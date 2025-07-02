@@ -15,7 +15,7 @@ begin
     
     { Verificar si hace calor }
     if fahrenheit > 80 then
-        writeln("Hace calor!")
+        writeln("Hace calor!");
     else
         writeln("Temperatura agradable");
 end. 

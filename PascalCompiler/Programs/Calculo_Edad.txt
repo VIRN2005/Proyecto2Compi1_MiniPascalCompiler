@@ -13,7 +13,7 @@ begin
     { Mostrar información }
     writeln("Anio de nacimiento: ", anioNacimiento);
     writeln("Anio actual: ", anioActual);
-    writeln("Edad: ", edad, " anos");
+    writeln("Edad: ", edad);
     
     { Categorizar por edad }
     if edad < 18 then

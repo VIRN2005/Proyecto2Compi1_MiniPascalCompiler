@@ -16,5 +16,5 @@ begin
     
     { Mensaje final }
     writeln("Conteo completado!");
-    writeln("Se contaron ", limite, " numeros");
+    writeln("Se contaron ", limite);
 end. 
